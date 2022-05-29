@@ -16,6 +16,8 @@ CREATE (estatus2:estatus {Calificacion:"9.0",estatus:"Aprobado",inscripcion:"Pri
 CREATE (estatus3:estatus {Calificacion:"5.3",estatus:"Reprobado",inscripcion:"Primera"})
 CREATE (estatus4:estatus {Calificacion:"7.0",estatus:"Aprobado",inscripcion:"Segunda"})
 CREATE (estatus5:estatus {Calificacion:"4.7",estatus:"Reprobado",inscripcion:"Primera"})
+CREATE (estatus6:estatus {Calificacion:"7.7",estatus:"Aprobado",inscripcion:"Primera"})
+CREATE (estatus7:estatus {Calificacion:"3.7",estatus:"Reprobado",inscripcion:"Primera"})
 //Carrera
 CREATE (carr1:carrera {nombre:"Tecnologias computacionales",facultad:"Estadistica e Informatica",region:"Xalapa"})
 CREATE (carr2:carrera {nombre:"Ing. de software",facultad:"Estadistica e Informatica",region:"Xalapa"})
@@ -77,6 +79,31 @@ MATCH(luis:estudiantes),(bdnc:materias),(estatus1:estatus)
 WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" AND estatus1.estatus="Aprobado"
 CREATE (luis)-[:tiene]->(estatus1),(estatus1)-[:en]->(bdnc)
 
+MATCH(carlos:estudiantes),(gr:materias),(estatus2:estatus)
+WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" AND estatus1.estatus="Aprobado"
+CREATE (carlos)-[:tiene]->(estatus2),(estatus2)-[:en]->(bdnc)
+
+MATCH(pablo:estudiantes),(ed:materias),(estatus3:estatus)
+WHERE pablo.nombre = "Pablo" AND ed.nombre= "Estructuras de datos" AND estatus3.estatus="Reprobado"
+CREATE (pablo)-[:tiene]->(estatus3),(estatus3)-[:en]->(ed)
+
+MATCH(javier:estudiantes),(pa:materias),(estatus4:estatus)
+WHERE javier.nombre = "Javier" AND pa.nombre= "Programación Avanzada" AND estatus4.estatus="Aprobado"
+CREATE (javier)-[:tiene]->(estatus4),(estatus4)-[:en]->(pa)
+
+
+MATCH(ingrid:estudiantes),(is:materias),(estatus5:estatus)
+WHERE ingrid.nombre = "Ingrid" AND is.nombre= "Ingenieria de software" AND estatus5.estatus="Reprobado"
+CREATE (ingrid)-[:tiene]->(estatus5),(estatus5)-[:en]->(is)
+
+MATCH(luis:estudiantes),(is:materias),(estatus6:estatus)
+WHERE luis.nombre = "Luis" AND is.nombre= "Ingenieria de software" AND estatus6.estatus="Aprobado"
+CREATE (luis)-[:tiene]->(estatus6),(estatus6)-[:en]->(is)
+
+MATCH(ingrid:estudiantes),(pa:materias),(estatus7:estatus)
+WHERE ingrid.nombre = "Ingrid" AND pa.nombre= "Programación Avanzada" AND estatus7.estatus="Reprobado"
+CREATE (ingrid)-[:tiene]->(estatus7),(estatus7)-[:en]->(pa)
+
 // 1 maestro n materias
 
 MATCH(rojano:maestros),(bdnc:materias)
@@ -126,5 +153,5 @@ WHERE javier.nombre = "Javier" AND carr3.nombre="Redes"
 CREATE (javier)-[:Estudia]->(carr3)
 
 MATCH(pablo:estudiantes),(carr4:carrera)
-WHERE pablo.nombre = "pablo" AND carr4.nombre="Filosofia" 
-CREATE (pablo)-[:Estudia]->(carr3)
+WHERE pablo.nombre = "Pablo" AND carr4.nombre="Filosofia" 
+CREATE (pablo)-[:Estudia]->(carr4)
