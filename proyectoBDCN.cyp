@@ -26,7 +26,7 @@ CREATE (rojano:maestros {nombre:"Rafael",apellidos:"Rojano",matricula:"zsd232354
 CREATE (carlos:maestros {nombre:"Carlos",apellidos:"Perez",matricula:"zsd2525843",edad:"36"})
 CREATE (lupita:maestros {nombre:"Lupita",apellidos:"Ramirez",matricula:"zsd5645683",edad:"50"})
 CREATE (luis:maestros {nombre:"Luis",apellidos:"García",matricula:"zsd27878343",edad:"37"})
-CREATE (Juan:maestros {nombre:"Juan",apellidos:"Martinez",matricula:"zsd457623543",edad:"29"})
+CREATE (juan:maestros {nombre:"Juan",apellidos:"Martinez",matricula:"zsd457623543",edad:"29"})
 
 
 
