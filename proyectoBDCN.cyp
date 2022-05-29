@@ -41,6 +41,30 @@ MATCH(rojano:maestros),(bdnc:materias)
 WHERE rojano.nombre = "Rafael" AND bdnc.nombre= "Base de datos no convencionales" 
 CREATE (rojano)-[:enseña]->(bdnc)
 
+MATCH(carlos:maestros),(gr:materias)
+WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" 
+CREATE (carlos)-[:enseña]->(gr)
+
+MATCH(carlos:maestros),(ed:materias)
+WHERE carlos.nombre = "Carlos" AND ed.nombre= "Estructuras de datos" 
+CREATE (carlos)-[:enseña]->(ed)
+
+MATCH(lupita:maestros),(is:materias)
+WHERE lupita.nombre = "Lupita" AND is.nombre= "Ingenieria de software" 
+CREATE (lupita)-[:enseña]->(is)
+
+MATCH(lupita:maestros),(pa:materias)
+WHERE lupita.nombre = "Lupita" AND pa.nombre= "Programación Avanzada" 
+CREATE (lupita)-[:enseña]->(pa)
+
+MATCH(luis:maestros),(pa:materias)
+WHERE luis.nombre = "Luis" AND pa.nombre= "Programación Avanzada" 
+CREATE (luis)-[:enseña]->(pa)
+
+MATCH(juan:maestros),(gr:materias)
+WHERE juan.nombre = "Juan" AND gr.nombre= "Graficacion" 
+CREATE (juan)-[:enseña]->(gr)
+
 // 1 Estudiante estudia 1 carrera
 
 MATCH(luis:estudiantes),(carr1:carrera)
