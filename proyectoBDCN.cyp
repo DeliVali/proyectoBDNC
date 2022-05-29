@@ -153,5 +153,5 @@ WHERE javier.nombre = "Javier" AND carr3.nombre="Redes"
 CREATE (javier)-[:Estudia]->(carr3)
 
 MATCH(pablo:estudiantes),(carr4:carrera)
-WHERE pablo.nombre = "pablo" AND carr4.nombre="Filosofia" 
-CREATE (pablo)-[:Estudia]->(carr3)
+WHERE pablo.nombre = "Pablo" AND carr4.nombre="Filosofia" 
+CREATE (pablo)-[:Estudia]->(carr4)
