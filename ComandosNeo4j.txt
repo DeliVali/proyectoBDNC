@@ -35,6 +35,7 @@ Busca el nodo con los datos mandados y despues inserta una propiedad con su valo
 
 ________________________________________________________________
 
+Detach=se usa para eliminar las relaciones asociadas al nodo
 
 MATCH (carlos:persona {name: "Carlos"} )
 DETACH DELETE carlos
@@ -52,6 +53,14 @@ Crea una relación pero por medio de una condición
 
 __________________________________________________________________
 
+MATCH (r)
+WHERE id(r) = 6
+DETACH DELETE r
 
+Eliminar nodo por id
+__________________________________________________________________
 
-
+MATCH (p1:Person)-[r:LOVES]-(p2:Person) 
+DETACH r
+Elimina la relación
+_________________________________________________________________
