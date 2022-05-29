@@ -6,7 +6,9 @@ CREATE (bdnc:materias {nombre:"Base de datos no convencionales",creditos:"6",hor
 
 //Estatus
 CREATE (estatus1:estatus {Calificacion:"8.0",estatus:"Aprobado",inscripcion:"Primera"})
-
+CREATE (estatus2:estatus {Calificacion:"9.0",estatus:"Aprobado",inscripcion:"Primera"})
+CREATE (estatus3:estatus {Calificacion:"5.3",estatus:"Reprobado",inscripcion:"Primera"})
+CREATE (estatus4:estatus {Calificacion:"7.0",estatus:"Aprobado",inscripcion:"Segunda"})
 //Carrera
 CREATE (carr1:carrera {nombre:"Tecnologias computacionales",facultad:"Estadistica e Informatica",region:"Xalapa"})
 CREATE (carr2:carrera {nombre:"Ing. de software",facultad:"Estadistica e Informatica",region:"Xalapa"})
