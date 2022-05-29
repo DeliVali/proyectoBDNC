@@ -25,46 +25,57 @@ CREATE (carr3:carrera {nombre:"Redes",facultad:"Estadistica e Informatica",regio
 CREATE (carr4:carrera {nombre:"Filosofia",facultad:"Humanidades",region:"Xalapa"})
 //Maestros
 CREATE (rojano:maestros {nombre:"Rafael",apellidos:"Rojano",matricula:"zsd2323543",edad:"45"})
-CREATE (carlos:maestros{nombre:"Carlos",apellidos:"Perez",matricula:"zsd2525843",edad:"36"})
+CREATE (carlosm:maestros{nombre:"Carlos",apellidos:"Perez",matricula:"zsd2525843",edad:"36"})
 CREATE (lupita:maestros{nombre:"Lupita",apellidos:"Ramirez",matricula:"zsd5645683",edad:"50"})
-CREATE (luis:maestros{nombre:"Luis",apellidos:"García",matricula:"zsd27878343",edad:"37"})
+CREATE (luism:maestros{nombre:"Luis",apellidos:"García",matricula:"zsd27878343",edad:"37"})
 CREATE (juan:maestros{nombre:"Juan",apellidos:"Martinez",matricula:"zsd457623543",edad:"29"})
 //________________________RELACIONES_____________________________
 // 1 Estudiante cursa N materias
 MATCH(luis:estudiantes),(bdnc:materias)
 WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" 
-CREATE (luis)-[:Cursa]->(bdnc)
+CREATE (luis)-[:Cursa]->(bdnc) 
+
 MATCH(carlos:estudiantes),(gr:materias)
 WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" 
-CREATE (carlos)-[:Cursa]->(gr)
+CREATE (carlos)-[:Cursa]->(gr) 
+
 MATCH(pablo:estudiantes),(ed:materias)
 WHERE pablo.nombre = "Pablo" AND ed.nombre= "Estructuras de datos" 
-CREATE (pablo)-[:Cursa]->(ed)
+CREATE (pablo)-[:Cursa]->(ed) 
+
 MATCH(javier:estudiantes),(pa:materias)
 WHERE javier.nombre = "Javier" AND pa.nombre= "Programación Avanzada" 
 CREATE (javier)-[:Cursa]->(pa)
+
 MATCH(ingrid:estudiantes),(is:materias)
 WHERE ingrid.nombre = "Ingrid" AND is.nombre= "Ingenieria de software" 
 CREATE (ingrid)-[:Cursa]->(is)
+
 MATCH(luis:estudiantes),(is:materias)
 WHERE luis.nombre = "Luis" AND is.nombre= "Ingenieria de software" 
 CREATE (luis)-[:Cursa]->(is)
+
 MATCH(ingrid:estudiantes),(pa:materias)
 WHERE ingrid.nombre = "Ingrid" AND pa.nombre= "Programación Avanzada" 
 CREATE (ingrid)-[:Cursa]->(pa)
+
 // 1 Estudiante se le asigna 1 Calificación a 1 materia
 MATCH(luis:estudiantes),(bdnc:materias),(estatus1:estatus)
 WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" AND estatus1.estatus="Aprobado"
 CREATE (luis)-[:tiene]->(estatus1),(estatus1)-[:en]->(bdnc)
+
 MATCH(carlos:estudiantes),(gr:materias),(estatus2:estatus)
 WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" AND estatus1.estatus="Aprobado"
 CREATE (carlos)-[:tiene]->(estatus2),(estatus2)-[:en]->(bdnc)
+
 MATCH(pablo:estudiantes),(ed:materias),(estatus3:estatus)
 WHERE pablo.nombre = "Pablo" AND ed.nombre= "Estructuras de datos" AND estatus3.estatus="Reprobado"
 CREATE (pablo)-[:tiene]->(estatus3),(estatus3)-[:en]->(ed)
+
 MATCH(javier:estudiantes),(pa:materias),(estatus4:estatus)
 WHERE javier.nombre = "Javier" AND pa.nombre= "Programación Avanzada" AND estatus4.estatus="Aprobado"
 CREATE (javier)-[:tiene]->(estatus4),(estatus4)-[:en]->(pa)
+
 MATCH(ingrid:estudiantes),(is:materias),(estatus5:estatus)
 WHERE ingrid.nombre = "Ingrid" AND is.nombre= "Ingenieria de software" AND estatus5.estatus="Reprobado"
 CREATE (ingrid)-[:tiene]->(estatus5),(estatus5)-[:en]->(is)
@@ -76,28 +87,30 @@ CREATE (luis)-[:tiene]->(estatus6),(estatus6)-[:en]->(is)
 MATCH(ingrid:estudiantes),(pa:materias),(estatus7:estatus)
 WHERE ingrid.nombre = "Ingrid" AND pa.nombre= "Programación Avanzada" AND estatus7.estatus="Reprobado"
 CREATE (ingrid)-[:tiene]->(estatus7),(estatus7)-[:en]->(pa)
+
 // 1 maestro n materias
 MATCH(rojano:maestros),(bdnc:materias)
 WHERE rojano.nombre = "Rafael" AND bdnc.nombre= "Base de datos no convencionales" 
 CREATE (rojano)-[:enseña]->(bdnc)
-MATCH(carlos:maestros),(gr:materias)
-WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" 
-CREATE (carlos)-[:enseña]->(gr)
-MATCH(carlos:maestros),(ed:materias)
-WHERE carlos.nombre = "Carlos" AND ed.nombre= "Estructuras de datos" 
-CREATE (carlos)-[:enseña]->(ed)
+MATCH(carlosm:maestros),(gr:materias)
+WHERE carlosm.nombre = "Carlos" AND gr.nombre= "Graficacion" 
+CREATE (carlosm)-[:enseña]->(gr)
+MATCH(carlosm:maestros),(ed:materias)
+WHERE carlosm.nombre = "Carlos" AND ed.nombre= "Estructuras de datos" 
+CREATE (carlosm)-[:enseña]->(ed)
 MATCH(lupita:maestros),(is:materias)
 WHERE lupita.nombre = "Lupita" AND is.nombre= "Ingenieria de software" 
 CREATE (lupita)-[:enseña]->(is)
 MATCH(lupita:maestros),(pa:materias)
 WHERE lupita.nombre = "Lupita" AND pa.nombre= "Programación Avanzada" 
 CREATE (lupita)-[:enseña]->(pa)
-MATCH(luis:maestros),(pa:materias)
-WHERE luis.nombre = "Luis" AND pa.nombre= "Programación Avanzada" 
-CREATE (luis)-[:enseña]->(pa)
+MATCH(luism:maestros),(pa:materias)
+WHERE luism.nombre = "Luis" AND pa.nombre= "Programación Avanzada" 
+CREATE (luism)-[:enseña]->(pa)
 MATCH(juan:maestros),(gr:materias)
 WHERE juan.nombre = "Juan" AND gr.nombre= "Graficacion" 
 CREATE (juan)-[:enseña]->(gr)
+
 // 1 Estudiante estudia 1 carrera
 MATCH(luis:estudiantes),(carr1:carrera)
 WHERE luis.nombre = "Luis" AND carr1.nombre="Tecnologias computacionales" 
