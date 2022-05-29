@@ -76,32 +76,32 @@ CREATE (ingrid)-[:Cursa]->(pa)
 // 1 Estudiante se le asigna 1 Calificación a 1 materia
 
 MATCH(luis:estudiantes),(bdnc:materias),(estatus1:estatus)
-WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" AND estatus1.estatus="Aprobado"
+WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" AND estatus1.Calificacion="8.0"
 CREATE (luis)-[:tiene]->(estatus1),(estatus1)-[:en]->(bdnc)
 
 MATCH(carlos:estudiantes),(gr:materias),(estatus2:estatus)
-WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" AND estatus1.estatus="Aprobado"
+WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" AND estatus2.Calificacion="9.0"
 CREATE (carlos)-[:tiene]->(estatus2),(estatus2)-[:en]->(bdnc)
 
 MATCH(pablo:estudiantes),(ed:materias),(estatus3:estatus)
-WHERE pablo.nombre = "Pablo" AND ed.nombre= "Estructuras de datos" AND estatus3.estatus="Reprobado"
+WHERE pablo.nombre = "Pablo" AND ed.nombre= "Estructuras de datos" AND estatus3.Calificacion="5.3"
 CREATE (pablo)-[:tiene]->(estatus3),(estatus3)-[:en]->(ed)
 
 MATCH(javier:estudiantes),(pa:materias),(estatus4:estatus)
-WHERE javier.nombre = "Javier" AND pa.nombre= "Programación Avanzada" AND estatus4.estatus="Aprobado"
+WHERE javier.nombre = "Javier" AND pa.nombre= "Programación Avanzada" AND estatus4.Calificacion="7.0"
 CREATE (javier)-[:tiene]->(estatus4),(estatus4)-[:en]->(pa)
 
 
 MATCH(ingrid:estudiantes),(is:materias),(estatus5:estatus)
-WHERE ingrid.nombre = "Ingrid" AND is.nombre= "Ingenieria de software" AND estatus5.estatus="Reprobado"
+WHERE ingrid.nombre = "Ingrid" AND is.nombre= "Ingenieria de software" AND estatus5.Calificacion="4.7"
 CREATE (ingrid)-[:tiene]->(estatus5),(estatus5)-[:en]->(is)
 
 MATCH(luis:estudiantes),(is:materias),(estatus6:estatus)
-WHERE luis.nombre = "Luis" AND is.nombre= "Ingenieria de software" AND estatus6.estatus="Aprobado"
+WHERE luis.nombre = "Luis" AND is.nombre= "Ingenieria de software" AND estatus6.Calificacion="7.7"
 CREATE (luis)-[:tiene]->(estatus6),(estatus6)-[:en]->(is)
 
 MATCH(ingrid:estudiantes),(pa:materias),(estatus7:estatus)
-WHERE ingrid.nombre = "Ingrid" AND pa.nombre= "Programación Avanzada" AND estatus7.estatus="Reprobado"
+WHERE ingrid.nombre = "Ingrid" AND pa.nombre= "Programación Avanzada" AND estatus7.Calificacion="3.7"
 CREATE (ingrid)-[:tiene]->(estatus7),(estatus7)-[:en]->(pa)
 
 // 1 maestro n materias
