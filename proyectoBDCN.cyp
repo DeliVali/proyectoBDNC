@@ -26,7 +26,7 @@ CREATE (rojano:maestros {nombre:"Rafael",apellidos:"Rojano",matricula:"zsd232354
 CREATE (carlos:maestros {nombre:"Carlos",apellidos:"Perez",matricula:"zsd2525843",edad:"36"})
 CREATE (lupita:maestros {nombre:"Lupita",apellidos:"Ramirez",matricula:"zsd5645683",edad:"50"})
 CREATE (luis:maestros {nombre:"Luis",apellidos:"García",matricula:"zsd27878343",edad:"37"})
-CREATE (Juan:maestros {nombre:"Juan",apellidos:"Martinez",matricula:"zsd457623543",edad:"29"})
+CREATE (juan:maestros {nombre:"Juan",apellidos:"Martinez",matricula:"zsd457623543",edad:"29"})
 
 
 
@@ -76,6 +76,10 @@ CREATE (ingrid)-[:Cursa]->(pa)
 MATCH(luis:estudiantes),(bdnc:materias),(estatus1:estatus)
 WHERE luis.nombre = "Luis" AND bdnc.nombre= "Base de datos no convencionales" AND estatus1.estatus="Aprobado"
 CREATE (luis)-[:tiene]->(estatus1),(estatus1)-[:en]->(bdnc)
+
+MATCH(carlos:estudiantes),(gr:materias),(estatus2:estatus)
+WHERE carlos.nombre = "Carlos" AND gr.nombre= "Graficacion" AND estatus1.estatus="Aprobado"
+CREATE (carlos)-[:tiene]->(estatus2),(estatus2)-[:en]->(bdnc)
 
 // 1 maestro n materias
 
