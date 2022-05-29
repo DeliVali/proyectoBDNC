@@ -140,4 +140,18 @@ MATCH(luis:estudiantes),(carr1:carrera)
 WHERE luis.nombre = "Luis" AND carr1.nombre="Tecnologias computacionales" 
 CREATE (luis)-[:Estudia]->(carr1)
 
+MATCH(ingrid:estudiantes),(carr1:carrera)
+WHERE ingrid.nombre = "Ingrid" AND carr1.nombre="Tecnologias computacionales" 
+CREATE (ingrid)-[:Estudia]->(carr1)
 
+MATCH(carlos:estudiantes),(carr2:carrera)
+WHERE carlos.nombre = "Carlos" AND carr2.nombre="Ing. de software" 
+CREATE (carlos)-[:Estudia]->(carr2)
+
+MATCH(javier:estudiantes),(carr3:carrera)
+WHERE javier.nombre = "Javier" AND carr3.nombre="Redes" 
+CREATE (javier)-[:Estudia]->(carr3)
+
+MATCH(pablo:estudiantes),(carr4:carrera)
+WHERE pablo.nombre = "pablo" AND carr4.nombre="Filosofia" 
+CREATE (pablo)-[:Estudia]->(carr3)
